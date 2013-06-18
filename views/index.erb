@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>R&eacute;sum&eacute;</title>
+  </head>
+  <body>
+    <button id="test">Test</button>
+    
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+    
+    var resobj = { 'resume': { 'name_first': 'Layla', 'name_last': 'Oldman', 'linked_in': 'linkedIn', 'website': 'http://example.com/', 'twitter': 'twitter', 'contact_info': { 'phone': '839-411-33790', 'email': 'taylor@titanigraf.com', 'street_address': { 'street': '18256 Lafayette Street', 'city': 'GrandRapids', 'state': 'CA', 'zip_code': '90210' } }, 'schools': [ { 'name': 'Entcast', 'degree': 'amet exercitation degree', 'gpa': 3.2, 'major': 'pariatur elit major', 'minor': 'qui laboris minor', 'start_month_year': '1292', 'end_month_year': '1092}' }, { 'name': 'Jamrola', 'degree': 'in consequat degree', 'gpa': 3.4, 'major': 'laborum aute major', 'minor': 'elit do minor', 'start_month_year': '0301', 'end_month_year': '0812}' }, { 'name': 'Technogra', 'degree': 'consequat sit degree', 'gpa': 3.4, 'major': 'est non major', 'minor': 'cupidatat aute minor', 'start_month_year': '0603', 'end_month_year': '0792}' } ], 'experience': [ { 'organization': 'RoboAerlogix', 'project': 'velit veniam project', 'role': 'magna role', 'start_month_year': '0113', 'end_month_year': '0391}', 'location': 'Boise', 'responsibilities': [ 'non', 'aute', 'sint', 'anim', 'sint' ] }, { 'organization': 'Ameritron', 'project': 'in adipisicing project', 'role': 'occaecat role', 'start_month_year': '0307', 'end_month_year': '0995}', 'location': 'Fairfield', 'responsibilities': [ 'mollit', 'velit', 'mollit', 'enim', 'do' ] } ], 'skill': [ { 'title': 'incididunt pariatur adipisicing', 'category': 'tempor category', 'experience': 1 }, { 'title': 'minim nostrud aliquip', 'category': 'in category', 'experience': 1 }, { 'title': 'elit qui culpa', 'category': 'aliqua category', 'experience': 5 } ], 'accomplishments': [ { 'title': 'enim aute', 'month_year': '1112', 'description': 'Esse occaecat id eiusmod in labore mollit officia sint sunt aliquip ea eiusmod est. Velit elit magna ipsum aliqua ad sint sunt enim reprehenderit minim ullamco. Pariatur irure deserunt officia cillum.\r\n' }, { 'title': 'duis in', 'month_year': '0997', 'description': 'Labore reprehenderit velit consectetur sit ad est ullamco non. Irure eu ipsum minim laborum elit officia mollit cupidatat eu esse laborum. Nulla ea ipsum sunt voluptate eiusmod culpa cupidatat adipisicing laborum duis velit duis. Ex deserunt tempor ipsum irure laboris enim labore dolore fugiat.\r\n' }, { 'title': 'mollit ea', 'month_year': '1010', 'description': 'Aliqua velit consectetur enim reprehenderit commodo adipisicing sit magna quis et magna mollit labore cillum. Id laboris ut tempor veniam et labore qui. Sint dolore proident consequat nulla pariatur qui occaecat esse ipsum officia aute. Labore anim adipisicing qui nulla. Fugiat occaecat esse enim cillum in nulla culpa. Tempor consectetur cillum qui fugiat labore qui. Exercitation duis est consectetur sit consequat eu consectetur.\r\n' }, { 'title': 'non ea', 'month_year': '0704', 'description': 'Consequat sunt in velit reprehenderit dolore sunt eiusmod eu non labore. Ad laborum nulla incididunt quis elit eu proident. Labore cillum eiusmod nulla commodo eu Lorem consequat culpa nisi duis culpa laborum et culpa. Sunt voluptate veniam ex laboris eiusmod aliquip deserunt fugiat ut voluptate reprehenderit sunt duis et. Nostrud minim dolore proident ex esse sint. Dolore nulla sint tempor proident fugiat esse sunt nostrud reprehenderit et dolor non. Aliquip elit ex officia aliqua nostrud eiusmod laborum occaecat dolore pariatur proident sunt consequat.\r\n' } ] } };
+      
+    $(function() {
+      console.log("loaded");
+      $('#test').on('click', function() {
+        $.ajax({
+          url: 'http://localhost:4567/api/resumes',
+          method: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify(resobj),
+          success: function(data) {
+            console.log("success!", data);
+          }
+        });
+      });
+    });
+    </script>
+  </body>
+</html>
