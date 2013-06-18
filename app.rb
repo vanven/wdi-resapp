@@ -116,9 +116,13 @@ end
 get '/api/resumes/:id' do
   content_type :json
   
-  doc = Doc.find(params[:id])
+  begin
+    doc = Doc.find(params[:id])
   
-  doc.to_json
+    doc.to_json
+  rescue Mongoid::Errors::DocumentNotFound => e
+    status 404
+  end
 end
 
 post '/api/resumes' do
@@ -128,10 +132,10 @@ post '/api/resumes' do
     data = JSON.parse(request.body.read)["resume"]
     id = Doc.create!(data)._id
     status 201
-    { :success => true, :id => id }.to_json
+    { success: true, id: id }.to_json
   rescue Mongoid::Errors::Validations => e
     status 422
-    { :success => false, :message => e.message }.to_json
+    { success: false, message: e.message }.to_json
   end
 end
 
@@ -142,15 +146,14 @@ put '/api/resumes/:id' do
     doc = Doc.find(params[:id])
   
     begin
-      # data = JSON.parse(request.body.read)["resume"]
-      # doc.update(data)
-      puts request.body.read
-      # puts data
+      data = JSON.parse(request.body.read)["resume"]
+      puts data
+      doc.update_attributes!(data)
       status 200
-      { :sucess => true, :id => params[:id] }
+      { sucess: true, id: params[:id] }.to_json
     rescue Mongoid::Errors::Validations => e
       status 422
-      { :success => false, :message => e.message }.to_json
+      { success: false, message: e.message }.to_json
     end
     
   rescue Mongoid::Errors::DocumentNotFound => e
