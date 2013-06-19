@@ -15,7 +15,7 @@
       console.log("loaded");
       $('#test').on('click', function() {
         $.ajax({
-          url: 'http://localhost:4567/api/resumes',
+          url: 'http://localhost:3000/api/resumes',
           method: 'POST',
           contentType: 'application/json',
           data: JSON.stringify(resobj),
