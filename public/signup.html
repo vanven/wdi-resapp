@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>	
+		<link rel="stylesheet" href="css/normalize.css">	
+ 		<link rel="stylesheet" href="css/bootstrap.css">
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script>
+
+		</script>
+		<style type="text/css">
+			.clearfix:after {
+				content: ".";
+				display: block;
+				clear: both;
+				visibility: hidden;
+				line-height: 0;
+				height: 0;
+			}
+
+			.topnav {
+				margin: 0px 0px;
+				list-style: none;
+				width: auto;
+				height: 39px;
+				background: #494949;
+			}
+
+			ul.topnav li {
+				float: left;
+				margin-top: 10px;
+			}
+
+			ul.topnav a {
+				background: #2FA382;
+				color: #000;
+				font-family: Verdana, sans-serif;
+				padding: 10px;
+				text-align: middle;
+				text-decoration: none;
+			}
+
+			ul.topnav a:hover {
+				background: #3FD1A8;
+			}
+			div.education_block {
+				width: 300px;
+				border-top: 2px;
+			}
+			#userDataForm {
+				padding: 50px;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="clearfix">		
+			<ul class="topnav">
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="profile.html">PROFILE</a></li>
+				<li><a href="resumes.html">RESUMES</a></li>
+			</ul>		
+		</div>
+		<form id="userDataForm">
+			<fieldset>
+				<legend>Who are you?</legend>
+				<label for="name"><i class="icon-user"></i>Name</label>
+				<input id="name" type="text" placeholder="e.g. Homer J. Simpson" />
+				<span class="help-block">Your name is your primary identifier, blah blah blah</span>
+				<legend>Address</legend>
+				<div >
+					<input class="street" type="text" placeholder="" />
+					<input class="city" type="text" placeholder="" />
+					<input class="state" type="text" placeholder="" />
+					<input class="zip" type="text" placeholder="" />
+				</div>
+				<label for="tel"><i class="icon-signal"></i>Phone</label>
+				<input id="tel" type="tel" placeholder="e.g. 555-555-5555" />
+				<label for="email"><i class="icon-envelope"></i>Email</label>
+				<input id="email" type="email" placeholder="e.g. h.simpson@springfieldnuke.org" />
+				<span class="help-block"></span>
+			</fieldset>
+			<fieldset>
+				<legend>Add your education</legend>
+				<div class="education_block">
+					<label><i class="icon-book"></i>School</label>
+					<input class="" type="text" placeholder="e.g. Harvard" />
+					<label>Degree</label>
+					<input type="text" placeholder="e.g. Anthropology" />
+					<label><i class="icon-calendar"></i>Dates</label>
+					<input class="" type="month" />
+					<label><i class="icon-map-marker"></i>Location</label>
+					<input class="" type="text" placeholder="e.g. Cambridge, MA">
+					<label>Accomplishments</label>
+					<textarea type="text" placeholder="e.g. blah blah blah DOH!"></textarea>
+				</div>
+				<span class="help_block">
+					<a href="#" class="education_block_add">
+						add another school
+					</a>
+				</span>
+
+			</fieldset>
+			<fieldset>
+				<legend>Add your work experience</legend>
+				<div class="work_block">
+					<label><i class="icon-briefcase"></i>Work</label>
+					<input type="text" placeholder="e.g. Springfield Power Plant" />
+					<label>Position</label>
+					<input type="text" placeholder="e.g. Safety Inspector" />
+					<label><i class="icon-calendar"></i>Dates</label>
+					<input type="month" />
+					<label><i class="icon-map-marker"></i>Location</label>
+					<input type="text" placeholder="e.g. Springfield">
+					<label>Accomplishments</label>
+					<textarea type="text" placeholder="e.g. blah blah blah DOH!"></textarea>
+				</div>
+				<span class="help_block">
+					<a href="#" class="work_block_add">
+						Add another work experience
+					</a>
+				</span>
+			</fieldset>
+			<fieldset>
+				<legend>Do you have Skills?</legend>
+				<div class="skill_block">
+					<label>Skill</label>
+					<input type="text" placeholder="e.g. Porkchops" />
+				</div>	
+				<span class="help_block">
+					<a href="#" class="skill_block_add">
+						Add skills
+					</a>
+				</span>			
+			</fieldset>
+			<button type="submit" class="btn">Save &amp; Continue</button>
+
+		</form>
+
+	</body>
+</html>
