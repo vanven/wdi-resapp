@@ -66,7 +66,7 @@
 		<form id="userDataForm">
 			<fieldset>
 				<legend>Who are you?</legend>
-				<label for="name"><i class="icon-user"></i>Name</label>
+				<label for=""><i class="icon-user"></i>Name</label>
 				<input class="name_first" type="text" placeholder="e.g. Homer" />
 				<input class="name_last" type="text" placeholder="Simpson" />
 
@@ -145,15 +145,23 @@
 				<legend>Add your education</legend>
 				<div class="education_block">
 					<label><i class="icon-book"></i>School</label>
-					<input class="" type="text" placeholder="e.g. Harvard" />
+					<input class="name" type="text" placeholder="e.g. Harvard" />
+	
 					<label>Degree</label>
-					<input type="text" placeholder="e.g. Anthropology" />
+					<input class="degree" type="text" placeholder="e.g. B.A. Liberal Arts" />
+
 					<label><i class="icon-calendar"></i>Dates</label>
-					<input class="" type="month" />
-					<label><i class="icon-map-marker"></i>Location</label>
-					<input class="" type="text" placeholder="e.g. Cambridge, MA">
-					<label>Accomplishments</label>
-					<textarea type="text" placeholder="e.g. blah blah blah DOH!"></textarea>
+					<input class="startDate" type="month" />
+					<input class="endDate" type="month" />
+
+					<label>Major</label>
+					<input class="major" type="text" placeholder="e.g. Underwater Basketweaving" />
+
+					<label>Minor</label>
+					<input class="minor" type="text" placeholder="e.g. Independent Studies" />
+
+					<label>GPA</label>
+					<input class="gpa" type="text" placeholder="4.0" />
 				</div>
 				<span class="help_block">
 					<a href="#" class="education_block_add">

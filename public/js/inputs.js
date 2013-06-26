@@ -60,30 +60,39 @@ $(document).ready(function() {
 		userData.city				= $('.city').val();
 		userData.state				= $('.state').val();
 
-	// //  Submit education data
-	// 	userData.schools = [];
+	//  Submit education data
+		userData.schools = [];
 
-	// 	var education_blocks = $('.education_block');
-	// 	//  for (i = 0; i < education_blocks.length; i++) {
-	// 	// 	school = {};
-	// 	// 	school.name = education_blocks[i].find('input.name').val();
-	// 	// 	school.degree = education_blocks[i].find('input.degree').val();
-	// 	// 	userData.schools.push(school);
-	// 	// }
+		var education_blocks = $('.education_block');
+		//  for (i = 0; i < education_blocks.length; i++) {
+		// 	school = {};
+		// 	school.name = education_blocks[i].find('input.name').val();
+		// 	school.degree = education_blocks[i].find('input.degree').val();
+		// 	userData.schools.push(school);
+		// }
 
-	// 	education_blocks.each(function(index, item) {
-	// 		var startDate 		= $(item).find('.startDate').val();
-	// 		var formattedDate 	= startDate.slice(5, 7) + startDate.slice(2, 4);
-	// 		console.log(startDate);
+		education_blocks.each(function(index, item) {
+			var startDate 		= $(item).find('.startDate').val();
+			var endDate 		= $(item).find('.endDate').val();
+			var formattedSDate 	= startDate.slice(5, 7) + startDate.slice(2, 4);
+			var formattedEDate 	= endDate.slice(5, 7) + endDate.slice(2, 4);
+			// console.log(startDate);
 
-	// 		userData.schools.push({
-	// 			name 	: $(item).find('.name').val(),
-	// 			degree 	: $(item).find('.degree').val(),
-	// 			start_month_year : formattedDate
-	// 		});
-	// 	});
+			temp = $(item.gpa).find('.gpa').val();
+			console.log(temp);
+
+			userData.schools.push({
+				name 	: $(item).find('.name').val(),
+				degree 	: $(item).find('.degree').val(),
+				major	: $(item).find('.major').val(),
+				minor 	: $(item).find('.minor').val(),
+				gpa 	: $(item).find('.gpa').val(),
+				start_month_year	: formattedSDate,
+				end_month_year 		: formattedEDate
+			});
+		});
 		
-	// 	console.log(education_blocks);
+		console.log(education_blocks);
 
 	// // Submit work history
 	// 	userData.experience = [];
