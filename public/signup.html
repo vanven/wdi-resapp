@@ -6,6 +6,7 @@
 
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/inputs.js"></script>
 		<script>
 
 		</script>
@@ -66,19 +67,78 @@
 			<fieldset>
 				<legend>Who are you?</legend>
 				<label for="name"><i class="icon-user"></i>Name</label>
-				<input id="name" type="text" placeholder="e.g. Homer J. Simpson" />
-				<span class="help-block">Your name is your primary identifier, blah blah blah</span>
-				<legend>Address</legend>
-				<div >
-					<input class="street" type="text" placeholder="" />
-					<input class="city" type="text" placeholder="" />
-					<input class="state" type="text" placeholder="" />
-					<input class="zip" type="text" placeholder="" />
+				<input class="name_first" type="text" placeholder="e.g. Homer" />
+				<input class="name_last" type="text" placeholder="Simpson" />
+
+				<!-- <span class="help-block">Your name is your primary identifier, blah blah blah</span>
+				<legend>Contact</legend> -->
+
+				<label>Street Address</label>
+				<input class="street_address span6" type="text" placeholder="742 Evergreen Terrace" />
+				<div class="form-inline">
+					
+					<input class="city span3" type="text" placeholder="City: e.g. Springfield" />
+					<select class="state span1" name="state">
+						<option>State</option>
+						<option value="AL">AL</option>
+						<option value="AK">AK</option>
+						<option value="AZ">AZ</option>
+						<option value="AR">AR</option>
+						<option value="CA">CA</option>
+						<option value="CO">CO</option>
+						<option value="CT">CT</option>
+						<option value="DE">DE</option>
+						<option value="DC">DC</option>
+						<option value="FL">FL</option>
+						<option value="GA">GA</option>
+						<option value="HI">HI</option>
+						<option value="ID">ID</option>
+						<option value="IL">IL</option>
+						<option value="IN">IN</option>
+						<option value="IA">IA</option>
+						<option value="KS">KS</option>
+						<option value="KY">KY</option>
+						<option value="LA">LA</option>
+						<option value="ME">ME</option>
+						<option value="MD">MD</option>
+						<option value="MA">MA</option>
+						<option value="MI">MI</option>
+						<option value="MN">MN</option>
+						<option value="MS">MS</option>
+						<option value="MO">MO</option>
+						<option value="MT">MT</option>
+						<option value="NE">NE</option>
+						<option value="NV">NV</option>
+						<option value="NH">NH</option>
+						<option value="NJ">NJ</option>
+						<option value="NM">NM</option>
+						<option value="NY">NY</option>
+						<option value="NC">NC</option>
+						<option value="ND">ND</option>
+						<option value="OH">OH</option>
+						<option value="OK">OK</option>
+						<option value="OR">OR</option>
+						<option value="PA">PA</option>
+						<option value="RI">RI</option>
+						<option value="SC">SC</option>
+						<option value="SD">SD</option>
+						<option value="TN">TN</option>
+						<option value="TX">TX</option>
+						<option value="UT">UT</option>
+						<option value="VT">VT</option>
+						<option value="VA">VA</option>
+						<option value="WA">WA</option>
+						<option value="WV">WV</option>
+						<option value="WI">WI</option>
+						<option value="WY">WY</option>
+					</select>
+				
+					<input class="zip_code span2" type="text" placeholder="Zip Code: e.g. 66666" />
 				</div>
-				<label for="tel"><i class="icon-signal"></i>Phone</label>
-				<input id="tel" type="tel" placeholder="e.g. 555-555-5555" />
+				<label for="phone"><i class="icon-signal"></i>Phone</label>
+				<input class="phone" type="tel" placeholder="e.g. 555-555-5555" />
 				<label for="email"><i class="icon-envelope"></i>Email</label>
-				<input id="email" type="email" placeholder="e.g. h.simpson@springfieldnuke.org" />
+				<input class="email" type="email" placeholder="e.g. h.simpson@springfieldnuke.org" />
 				<span class="help-block"></span>
 			</fieldset>
 			<fieldset>
@@ -104,20 +164,21 @@
 			</fieldset>
 			<fieldset>
 				<legend>Add your work experience</legend>
-				<div class="work_block">
+				<div class="exp_block">
 					<label><i class="icon-briefcase"></i>Work</label>
-					<input type="text" placeholder="e.g. Springfield Power Plant" />
+					<input class="organization" type="text" placeholder="e.g. Springfield Power Plant" />
 					<label>Position</label>
-					<input type="text" placeholder="e.g. Safety Inspector" />
+					<input class="role" type="text" placeholder="e.g. Safety Inspector" />
 					<label><i class="icon-calendar"></i>Dates</label>
 					<input type="month" />
 					<label><i class="icon-map-marker"></i>Location</label>
 					<input type="text" placeholder="e.g. Springfield">
 					<label>Accomplishments</label>
 					<textarea type="text" placeholder="e.g. blah blah blah DOH!"></textarea>
+					<hr />
 				</div>
 				<span class="help_block">
-					<a href="#" class="work_block_add">
+					<a href="#" class="exp_block_add">
 						Add another work experience
 					</a>
 				</span>
@@ -135,7 +196,7 @@
 				</span>			
 			</fieldset>
 			<button type="submit" class="btn">Save &amp; Continue</button>
-
+			
 		</form>
 
 	</body>

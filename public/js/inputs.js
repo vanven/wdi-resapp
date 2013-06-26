@@ -1,18 +1,5 @@
 $(document).ready(function() {
 
-	$.ajax('api/resumes/51c2082e1b128c84b200000b', {
-
-		complete : function(response){
-			var res = response.responseJSON;
-			var first = res.name_first;
-			var last = res.name_last;
-			// var fullName = first + ' ' + last;
-			$('.name_first').html(first);
-			$('.name_last').html(last);
-			// $('#moniker').html(response.responseJSON.name_first + ' ' + response.responseJSON.name_last);
-		}
-	});
-
 // Clone input boxes for education block
 	$('.education_block_add').click(function() {
 		var html = $('.education_block').first().clone();
@@ -28,8 +15,8 @@ $(document).ready(function() {
 	});
 
 // Clone input boxes for work experience
-	$('.work_block_add').click(function() {
-		var html = $('.work_block').first().clone();
+	$('.exp_block_add').click(function() {
+		var html = $('.exp_block').first().clone();
 		html.css('display', 'none');
 		html.find('input').val('');
 		$(this).before(html);
@@ -73,34 +60,44 @@ $(document).ready(function() {
 		userData.city				= $('.city').val();
 		userData.state				= $('.state').val();
 
-	//  Submit education data
-		userData.schools = [];
+	// //  Submit education data
+	// 	userData.schools = [];
 
-		var education_blocks = $('.education_block');
-		//  for (i = 0; i < education_blocks.length; i++) {
-		// 	school = {};
-		// 	school.name = education_blocks[i].find('input.name').val();
-		// 	school.degree = education_blocks[i].find('input.degree').val();
-		// 	userData.schools.push(school);
-		// }
+	// 	var education_blocks = $('.education_block');
+	// 	//  for (i = 0; i < education_blocks.length; i++) {
+	// 	// 	school = {};
+	// 	// 	school.name = education_blocks[i].find('input.name').val();
+	// 	// 	school.degree = education_blocks[i].find('input.degree').val();
+	// 	// 	userData.schools.push(school);
+	// 	// }
 
-		education_blocks.each(function(index, item) {
-			var startDate = $(item).find('.startDate').val();
-			var formattedDate = startDate.slice(5, 7) + startDate.slice(2, 4);
-			console.log(startDate);
+	// 	education_blocks.each(function(index, item) {
+	// 		var startDate 		= $(item).find('.startDate').val();
+	// 		var formattedDate 	= startDate.slice(5, 7) + startDate.slice(2, 4);
+	// 		console.log(startDate);
 
-			userData.schools.push({
-				name 	: $(item).find('.name').val(),
-				degree 	: $(item).find('.degree').val(),
-				start_month_year : formattedDate
-			});
-		});
+	// 		userData.schools.push({
+	// 			name 	: $(item).find('.name').val(),
+	// 			degree 	: $(item).find('.degree').val(),
+	// 			start_month_year : formattedDate
+	// 		});
+	// 	});
 		
-		console.log(education_blocks);
+	// 	console.log(education_blocks);
 
-	// Submit work history
-		userData.work = [];
-		
+	// // Submit work history
+	// 	userData.experience = [];
+	// 	var exp_blocks = $('.exp_block');
+	// 	exp_blocks.each(function(index, item) {
+	// 		var startDate 		= $(item).find('.startDate').val();
+	// 		var formattedDate 	= startDate.slice(5, 7) + startDate.slice(2, 4);
+	// 		console.log(startDate);
+
+	// 		userData.experience.push({
+
+	// 		});
+
+	// 	})
 
 
 		console.log(userData);
