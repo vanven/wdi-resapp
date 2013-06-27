@@ -60,7 +60,7 @@ $(document).ready(function() {
 		userData.city				= $('.city').val();
 		userData.state				= $('.state').val();
 
-	//  Submit education data
+	// Submit education data
 		userData.schools = [];
 
 		var edu_blocks = $('.edu_block');
@@ -116,6 +116,15 @@ $(document).ready(function() {
 			});
 		});
 
+	// Submit skills
+		userData.skills = [];
+		var skill_blocks = $('.skill_block');
+		skill_blocks.each(function(index, item) {
+			userData.skills.push({
+				title 		: $(item).find('.title').val(),
+				experience 	: $(item).find('.experience').val() * 1.0,
+			});
+		});
 
 		console.log(userData);
 		return false;
