@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
 // Clone input boxes for education block
-	$('.education_block_add').click(function() {
-		var html = $('.education_block').first().clone();
+	$('.edu_block_add').click(function() {
+		var html = $('.edu_block').first().clone();
 		html.css('display', 'none');
 		html.find('input').val('');
 		$(this).before(html);
@@ -63,50 +63,58 @@ $(document).ready(function() {
 	//  Submit education data
 		userData.schools = [];
 
-		var education_blocks = $('.education_block');
-		//  for (i = 0; i < education_blocks.length; i++) {
+		var edu_blocks = $('.edu_block');
+		//  for (i = 0; i < edu_blocks.length; i++) {
 		// 	school = {};
-		// 	school.name = education_blocks[i].find('input.name').val();
-		// 	school.degree = education_blocks[i].find('input.degree').val();
+		// 	school.name = edu_blocks[i].find('input.name').val();
+		// 	school.degree = edu_blocks[i].find('input.degree').val();
 		// 	userData.schools.push(school);
 		// }
 
-		education_blocks.each(function(index, item) {
+		edu_blocks.each(function(index, item) {
 			var startDate 		= $(item).find('.startDate').val();
 			var endDate 		= $(item).find('.endDate').val();
 			var formattedSDate 	= startDate.slice(5, 7) + startDate.slice(2, 4);
 			var formattedEDate 	= endDate.slice(5, 7) + endDate.slice(2, 4);
 			// console.log(startDate);
 
-			temp = $(item.gpa).find('.gpa').val();
-			console.log(temp);
+			// temp = $(item.gpa).find('.gpa').val();
+			// console.log(temp);
 
 			userData.schools.push({
 				name 	: $(item).find('.name').val(),
 				degree 	: $(item).find('.degree').val(),
 				major	: $(item).find('.major').val(),
 				minor 	: $(item).find('.minor').val(),
-				gpa 	: $(item).find('.gpa').val(),
+				gpa 	: $(item).find('.gpa').val() * 1.0,
 				start_month_year	: formattedSDate,
-				end_month_year 		: formattedEDate
+				end_month_year 		: formattedEDate,
 			});
 		});
 		
-		console.log(education_blocks);
+		console.log(edu_blocks);
 
-	// // Submit work history
-	// 	userData.experience = [];
-	// 	var exp_blocks = $('.exp_block');
-	// 	exp_blocks.each(function(index, item) {
-	// 		var startDate 		= $(item).find('.startDate').val();
-	// 		var formattedDate 	= startDate.slice(5, 7) + startDate.slice(2, 4);
-	// 		console.log(startDate);
+	// Submit work history
+		userData.experience = [];
+		var exp_blocks = $('.exp_block');
+		exp_blocks.each(function(index, item) {
+			var startDate 		= $(item).find('.startDate').val();
+			var endDate 		= $(item).find('.endDate').val();
+			var formattedSDate 	= startDate.slice(5, 7) + startDate.slice(2, 4);
+			var formattedEDate 	= endDate.slice(5, 7) + endDate.slice(2, 4);
 
-	// 		userData.experience.push({
+			// var responsibilities
 
-	// 		});
-
-	// 	})
+			userData.experience.push({
+				organization 		: $(item).find('.organization').val(),
+				location 			: $(item).find('.location').val(),
+				role 				: $(item).find('.role').val(),
+				project 			: $(item).find('.project').val(),
+				// responsibilities 	: $(item).find('.responsibilities')val(),
+				start_month_year	: formattedSDate,
+				end_month_year 		: formattedEDate,
+			});
+		});
 
 
 		console.log(userData);

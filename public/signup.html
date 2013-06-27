@@ -45,7 +45,7 @@
 			ul.topnav a:hover {
 				background: #3FD1A8;
 			}
-			div.education_block {
+			div.edu_block {
 				width: 300px;
 				border-top: 2px;
 			}
@@ -143,7 +143,7 @@
 			</fieldset>
 			<fieldset>
 				<legend>Add your education</legend>
-				<div class="education_block">
+				<div class="edu_block">
 					<label><i class="icon-book"></i>School</label>
 					<input class="name" type="text" placeholder="e.g. Harvard" />
 	
@@ -164,7 +164,7 @@
 					<input class="gpa" type="text" placeholder="4.0" />
 				</div>
 				<span class="help_block">
-					<a href="#" class="education_block_add">
+					<a href="#" class="edu_block_add">
 						add another school
 					</a>
 				</span>
@@ -175,15 +175,22 @@
 				<div class="exp_block">
 					<label><i class="icon-briefcase"></i>Work</label>
 					<input class="organization" type="text" placeholder="e.g. Springfield Power Plant" />
+
 					<label>Position</label>
 					<input class="role" type="text" placeholder="e.g. Safety Inspector" />
+
 					<label><i class="icon-calendar"></i>Dates</label>
-					<input type="month" />
+					<input class="startDate" type="month" />
+					<input class="endDate" type="month" />
+
 					<label><i class="icon-map-marker"></i>Location</label>
-					<input type="text" placeholder="e.g. Springfield">
-					<label>Accomplishments</label>
-					<textarea type="text" placeholder="e.g. blah blah blah DOH!"></textarea>
-					<hr />
+					<input class="location" type="text" placeholder="e.g. Springfield">
+
+					<label>Project</label>
+					<input class="project" type="text" placeholder="e.g. 3-Eyed Fish Research" />
+
+					<label>Responsibilities</label>
+
 				</div>
 				<span class="help_block">
 					<a href="#" class="exp_block_add">
@@ -192,10 +199,13 @@
 				</span>
 			</fieldset>
 			<fieldset>
-				<legend>Do you have Skills?</legend>
+				<legend>Add Skills</legend>
 				<div class="skill_block">
+					<!-- <label>Category</label> -->
 					<label>Skill</label>
-					<input type="text" placeholder="e.g. Porkchops" />
+					<input class="title" type="text" placeholder="e.g. Ruby on Rails">
+					<label>Years of Experience</label>
+					<input class="experience span1" type="text" placeholder="e.g. 2.5"> years
 				</div>	
 				<span class="help_block">
 					<a href="#" class="skill_block_add">
