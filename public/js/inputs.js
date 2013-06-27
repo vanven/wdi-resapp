@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+function clog( input ){
+	console.log(input);
+}
+
 // Clone input boxes for education block
 	$('.edu_block_add').click(function() {
 		var html = $('.edu_block').first().clone();
@@ -10,7 +14,7 @@ $(document).ready(function() {
 
 		// $('.help_block').before(html);
 		html.slideDown(600);
-		console.log('here');
+		clog('edu'); 	// $$TEMP
 		return false;
 	});
 
@@ -22,9 +26,21 @@ $(document).ready(function() {
 		$(this).before(html);
 
 		html.slideDown(600);
-		console.log('here');
+		console.log('exp'); 	// $$TEMP
 		return false;
 	});
+
+	// Clone responsibilities input for work experience
+		$('.resp_block_add').click(function() {
+			var html = $('.resp_block').first().clone();
+			html.css('display', 'none');
+			html.find('input').val('');
+			$(this).before(html);
+
+			html.slideDown(600);
+			console.log('resp'); 	// $$TEMP
+			return false;
+		})
 
 // Clone input boxes for accomplishments
 	$('.acc_block_add').click(function() {
@@ -34,7 +50,7 @@ $(document).ready(function() {
 		$(this).before(html);
 
 		html.slideDown(600);
-		console.log('here');
+		console.log('acc'); 	// $$TEMP
 		return false;
 	});
 
@@ -49,7 +65,7 @@ $(document).ready(function() {
 
 		$(this).before(html);
 		html.slideDown(600);
-		console.log('here');
+		console.log('skill'); 	// $$TEMP
 		return false;
 	});
 
@@ -96,7 +112,7 @@ $(document).ready(function() {
 			// temp = $(item.gpa).find('.gpa').val();
 			// console.log(temp);
 
-			userData.schools.push({
+			var schoolData = {
 				name 	: $(item).find('.name').val(),
 				degree 	: $(item).find('.degree').val(),
 				major	: $(item).find('.major').val(),
@@ -104,7 +120,11 @@ $(document).ready(function() {
 				gpa 	: $(item).find('.gpa').val() * 1.0,
 				start_month_year	: formattedSDate,
 				end_month_year 		: formattedEDate,
-			});
+			};
+
+			// can add validator here to check each entry in schoolData
+
+			userData.schools.push(schoolData);
 		});
 		
 		console.log(edu_blocks);
@@ -118,17 +138,26 @@ $(document).ready(function() {
 			var formattedSDate 	= startDate.slice(5, 7) + startDate.slice(2, 4);
 			var formattedEDate 	= endDate.slice(5, 7) + endDate.slice(2, 4);
 
-			// var responsibilities
+			userData.experience.resp = [];
+			var resp_blocks 	= $('.resp_block');
+			resp_blocks.each(function(index, item) {
+				userData.experience.resp.push({
+					responsibility 	: $(item).find('.resp').val()
+				});
+			});
 
-			userData.experience.push({
+			var workData = {
 				organization 		: $(item).find('.organization').val(),
 				location 			: $(item).find('.location').val(),
 				role 				: $(item).find('.role').val(),
 				project 			: $(item).find('.project').val(),
-				// responsibilities 	: $(item).find('.responsibilities')val(),
+				responsibilities 	: userData.experience.resp,
+
 				start_month_year	: formattedSDate,
 				end_month_year 		: formattedEDate,
-			});
+			};
+
+			userData.experience.push(workData);
 		});
 		
 	// Submit accomplishments
@@ -138,20 +167,23 @@ $(document).ready(function() {
 			var monthYear 		= $(item).find('.month_year').val();
 			var formattedDate 	= monthYear.slice(5, 7) + monthYear.slice(2, 4);
 
-			userData.accomplishments.push({
+			var accData			= {
 				description : $(item).find('.description').val(),
 				month_year 	: formattedDate
-			});
+			};
+
+			userData.accomplishments.push(accData);
 		});
 
 	// Submit skills
 		userData.skills = [];
 		var skill_blocks = $('.skill_block');
 		skill_blocks.each(function(index, item) {
-			userData.skills.push({
+			var skillData = {
 				title 		: $(item).find('.title').val(),
 				experience 	: $(item).find('.experience').val() * 1.0,
-			});
+			};
+			userData.skills.push(skillData);
 		});
 
 		console.log(userData);
