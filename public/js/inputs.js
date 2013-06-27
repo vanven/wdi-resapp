@@ -26,6 +26,18 @@ $(document).ready(function() {
 		return false;
 	});
 
+// Clone input boxes for accomplishments
+	$('.acc_block_add').click(function() {
+		var html = $('.acc_block').first().clone();
+		html.css('display', 'none');
+		html.find('input').val('');
+		$(this).before(html);
+
+		html.slideDown(600);
+		console.log('here');
+		return false;
+	});
+
 // Clone input boxes for skills
 	$('.skill_block_add').click(function() {
 		var html = $('.skill_block').first().clone();
@@ -48,8 +60,11 @@ $(document).ready(function() {
 	// Submit contact info
 		var userData = {};
 
-		userData.name_first 		= $('.name_first').val();
-		userData.name_last 			= $('.name_last').val();
+		first 	= $('.name_first').val();
+		last 	= $('.name_last').val();
+
+		userData.name_first = first;
+		userData.name_last = last;
 
 		// userData.fullName 			= $('#name').val();
 
@@ -115,6 +130,19 @@ $(document).ready(function() {
 				end_month_year 		: formattedEDate,
 			});
 		});
+		
+	// Submit accomplishments
+		userData.accomplishments = [];
+		var acc_blocks = $('.acc_block');
+		acc_blocks.each(function(index, item) {
+			var monthYear 		= $(item).find('.month_year').val();
+			var formattedDate 	= monthYear.slice(5, 7) + monthYear.slice(2, 4);
+
+			userData.accomplishments.push({
+				description : $(item).find('.description').val(),
+				month_year 	: formattedDate
+			});
+		});
 
 	// Submit skills
 		userData.skills = [];
@@ -127,6 +155,16 @@ $(document).ready(function() {
 		});
 
 		console.log(userData);
+
+		// $.ajax({
+		// 	type : "POST",
+		// 	url : "api/resumes",
+		// 	data : JSON.stringify(userData)
+		// }).done(function() {
+		// 	alert( "Data Saved: for " + first + " " +last );
+		// });
+
+
 		return false;
 	});
 });
