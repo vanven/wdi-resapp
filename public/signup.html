@@ -52,6 +52,13 @@
 			#userDataForm {
 				padding: 50px;
 			}
+			.bottomnav {
+				margin: 0px 0px;
+				width: auto;
+				height: 39px;
+				background: #494949;
+
+			}
 		</style>
 
 	</head>
@@ -74,9 +81,9 @@
 				<legend>Contact</legend> -->
 
 				<label>Street Address</label>
-				<input class="street_address span6" type="text" placeholder="742 Evergreen Terrace" />
+				<input class="street span6" type="text" placeholder="742 Evergreen Terrace" />
+
 				<div class="form-inline">
-					
 					<input class="city span3" type="text" placeholder="City: e.g. Springfield" />
 					<select class="state span1" name="state">
 						<option>State</option>
@@ -135,10 +142,22 @@
 				
 					<input class="zip_code span2" type="text" placeholder="Zip Code: e.g. 66666" />
 				</div>
+
 				<label for="phone"><i class="icon-signal"></i>Phone</label>
 				<input class="phone" type="tel" placeholder="e.g. 555-555-5555" />
+
 				<label for="email"><i class="icon-envelope"></i>Email</label>
 				<input class="email" type="email" placeholder="e.g. h.simpson@springfieldnuke.org" />
+
+				<label>Personal Website/Portfolio</label>
+				<input class="website" type="url" placeholder="e.g. http://website.com" /> 		<!-- $$EDIT validate for http:// -->
+
+				<label>LinkedIn</label>
+				<input class="linkedin" type="url" placeholder="" />
+
+				<label>Twitter</label>
+				<input class="twitter" type="text" /> 		<!-- $$EDIT Append @ sign to id? url ??? Use slice to validate -->
+
 				<span class="help-block"></span>
 			</fieldset>
 			<fieldset>
@@ -208,6 +227,8 @@
 			<fieldset>
 				<legend>Add Accomplishments</legend>
 				<div class="acc_block">
+					<label>Title</label>
+					<input class="title" type="text" placeholder="" />
 					<label>Describe Accomplishment</label>
 					<input class="description" type="text" placeholder="Ran the New York Marathon">
 					<label>Date</label>
@@ -237,6 +258,7 @@
 			<button type="submit" class="btn">Save &amp; Continue</button>
 			
 		</form>
-
+		<div class="bottomnav">
+		</div>
 	</body>
 </html>
