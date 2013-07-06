@@ -33,7 +33,7 @@ function clog( input ){
 
 	// Clone responsibilities input for work experience
 		
-			$('a.resp_block_add').bind('click', function() {
+			$('a.resp_block_add').click(function() {
 				var html = $('.resp_block').first().clone();
 				html.css('display', 'none');
 				html.find('input').val('');
@@ -212,7 +212,7 @@ function clog( input ){
 		var JSON_data = JSON.stringify({'resume' : userData});
 		clog(JSON_data);
 
-		var PATH = 'api/resumes'
+		var PATH = '/'
 		$.ajax({
 			type : 'POST',
 			url : PATH,
