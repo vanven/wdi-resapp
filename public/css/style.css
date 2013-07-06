@@ -57,6 +57,10 @@ ul.topnav a:hover {
 	border-bottom: 3px solid #000;
 }
 
+.name h1 {
+	font-size: 75px;
+}
+
 .links {
 	display: block;
 	float: right;
@@ -169,5 +173,4 @@ ul#skillset {
 	width: auto;
 	height: 39px;
 	background: #494949;
-
 }
